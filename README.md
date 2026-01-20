@@ -60,7 +60,7 @@
 
 ```bash
 # 1. Клонируйте репозиторий
-git clone https://github.com/your-username/tiktok-checker-bot.git
+git clone https://github.com/nacism/tiktok-username-checker-tg-bot.git
 cd tiktok-checker-bot
 
 # 2. Создайте виртуальное окружение
@@ -226,3 +226,4 @@ tiktok-checker-bot/
 <p align="center">
   Made with ❤️ by <a href="https://t.me/ketyl">@ketyl</a>
 </p>
+
