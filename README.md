@@ -61,7 +61,7 @@
 ```bash
 # 1. Клонируйте репозиторий
 git clone https://github.com/nacism/tiktok-username-checker-tg-bot.git
-cd tiktok-checker-bot
+cd tiktok-username-checker-tg-bot
 
 # 2. Создайте виртуальное окружение
 python -m venv venv
@@ -226,4 +226,5 @@ tiktok-checker-bot/
 <p align="center">
   Made with ❤️ by <a href="https://t.me/ketyl">@ketyl</a>
 </p>
+
 
