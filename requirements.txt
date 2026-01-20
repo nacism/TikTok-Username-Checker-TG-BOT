@@ -1,0 +1,17 @@
+# TikTok Username Checker Bot - Зависимости
+# ==========================================
+
+# Основной фреймворк для Telegram бота
+aiogram
+
+# Асинхронный HTTP клиент
+aiohttp
+
+# Асинхронная работа с файлами  
+aiofiles
+
+# Загрузка переменных из .env файла
+python-dotenv
+
+# Декомпрессия Brotli (требуется для TikTok)
+Brotli

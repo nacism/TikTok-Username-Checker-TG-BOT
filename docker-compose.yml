@@ -1,0 +1,60 @@
+# TikTok Username Checker Bot - Docker Compose
+# =============================================
+# 
+# Запуск: docker-compose up -d
+# Остановка: docker-compose down
+# Логи: docker-compose logs -f
+#
+# ВАЖНО: Перед запуском создайте файл .env с переменной BOT_TOKEN
+# или укажите токен напрямую в environment ниже.
+
+services:
+  tiktok-checker-bot:
+    # Имя контейнера
+    container_name: tiktok-checker-bot
+    
+    # Сборка из текущей директории
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    # Переменные окружения
+    environment:
+      # Токен Telegram бота (получить у @BotFather)
+      # Вариант 1: Указать напрямую (не рекомендуется для продакшена)
+      # BOT_TOKEN: "your_bot_token_here"
+      
+      # Вариант 2: Из файла .env (рекомендуется)
+      - BOT_TOKEN=${BOT_TOKEN}
+    
+    # Файл с переменными окружения
+    env_file:
+      - .env
+    
+    # Политика перезапуска
+    restart: unless-stopped
+    
+    # Ограничение ресурсов
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.5'
+        reservations:
+          memory: 128M
+          cpus: '0.25'
+    
+    # Логирование
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Health check (проверка что процесс запущен)
+    healthcheck:
+      test: ["CMD", "pgrep", "-f", "python main.py"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
